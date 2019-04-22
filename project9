@@ -1,0 +1,67 @@
+/******************************************************
+
+Author: Mihir Patel 
+
+Purpose of the program is ask user what to draw.Based 
+on selection, the screen will display an option with 
+numbers of pixel the screen should fill up with
+their first choosen option. The image will be drawn 
+from the center of the screen. 
+
+Ex: Op 1) Draw circle. Op 2) Radius 10 pixels from center.
+
+******************************************************/ 
+
+class Main {
+    function void main() {
+      var int x,y,size, choice,ctr;
+
+      let x = 256;
+      let y = 128;
+      let ctr = 0;
+      let size = 0;
+
+      let choice = Keyboard.readInt("1) Square 2) circle 3) clear screen 4) exit. Enter 1-4: ");
+
+      while(~(choice = 4)){
+      
+         if(choice = 1){
+            
+            let size = Keyboard.readInt("Enter size between 0 - 100: ");
+            if(ctr = 0){
+               do Screen.setColor(true);
+               do Screen.drawRectangle(x-size, y-size, x + size, y + size);
+               let ctr = 1;
+            }
+             else{
+               do Screen.setColor(false);
+               do Screen.drawRectangle(x-size, y-size, x + size, y + size);
+                let ctr = 0;
+            }
+
+         }
+
+         if(choice = 2) {
+            
+            let size = Keyboard.readInt("Enter size between 0 - 100: ");
+            if(ctr = 0){
+               do Screen.setColor(true);
+               do Screen.drawCircle(x , y , size);
+               let ctr = 1;
+            }else{
+               do Screen.setColor(false);
+               do Screen.drawCircle(x , y , size);
+               let ctr = 0;
+            }
+         }
+
+         if(choice = 3) {
+         do Screen.clearScreen();
+         }
+         
+         let choice = Keyboard.readInt("1) Square 2) circle 3) clear screen 4) exit. Enter 1-4: ");
+
+      }
+      return;
+    }
+}
